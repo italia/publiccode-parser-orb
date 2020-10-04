@@ -1,0 +1,32 @@
+description: >
+  Check your publiccode.yml validity
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+parameters:
+  remoteBaseURL:
+    type: string
+    default: ""
+    description: "The URL pointing to the directory where the publiccode.yml file is located."
+  localBasePath:
+    type: string
+    default: ""
+    description: "An absolute or relative path pointing to a locally cloned repository where the publiccode.yml is located."
+  disableNetwork:
+    type: boolean
+    default: false
+    description: "Disables checks that require network connections (URL existence and oEmbed). This makes validation much faster."
+  export:
+    type: string
+    default: ""
+    description: "Export the normalized publiccode.yml file to the given path."
+  noStrict:
+    type: boolean
+    default: false
+    description: "Disable Strict Mode"
+    
+steps:
+  - run:
+      environment:
+        PARAM_TO: <<parameters.to>>
+      name: Hello Greeting
+      command: <<include(scripts/greet.sh)>>
