@@ -107,6 +107,7 @@ jobs:
                 description: The URL pointing to the directory where the publiccode.yml file is located.
                 type: string
         steps:
+            - checkout
             - pcvalidate:
                 filename: << parameters.filename >>
                 no-network: << parameters.no-network >>

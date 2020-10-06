@@ -28,6 +28,7 @@ parameters:
     description: "The URL pointing to the directory where the publiccode.yml file is located."
 
 steps:
+  - checkout
   - pcvalidate:
       filename: << parameters.filename >>
       path: << parameters.path >>
