@@ -108,6 +108,7 @@ jobs:
                 type: string
         steps:
             - checkout
+            - setup_remote_docker
             - pcvalidate:
                 filename: << parameters.filename >>
                 no-network: << parameters.no-network >>

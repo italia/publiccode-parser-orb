@@ -29,6 +29,7 @@ parameters:
 
 steps:
   - checkout
+  - setup_remote_docker
   - pcvalidate:
       filename: << parameters.filename >>
       path: << parameters.path >>
