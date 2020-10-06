@@ -30,6 +30,7 @@ parameters:
 steps:
   - checkout
   - setup_remote_docker
+  - run: docker run hello-world
   - pcvalidate:
       filename: << parameters.filename >>
       path: << parameters.path >>
