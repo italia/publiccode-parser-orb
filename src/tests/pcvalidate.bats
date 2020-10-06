@@ -7,7 +7,7 @@ setup() {
 @test '1: Test It' {
 
     export P_FILENAME=""
-    export P_FILEPATH="$(pwd)"
+    export PARAM_FPATH="$(pwd)"
     export P_DISABLE_NETWORK="false"
     export P_DISABLE_STRICT="false"
     export P_REMOTE_BASE_URL=""

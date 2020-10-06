@@ -23,12 +23,12 @@ parameters:
     type: string
     default: ""
     description: "The URL pointing to the directory where the publiccode.yml file is located."
-    
+
 steps:
   - run:
       environement:
         P_FILENAME: <<parameters.filename>>
-        P_FILEPATH: <<parameters.path>>
+        PARAM_FPATH: <<parameters.path>>
         P_DISABLE_NETWORK: <<parameters.no-network>>
         P_DISABLE_STRICT: <<parameters.no-strict>>
         P_REMOTE_BASE_URL: <<parameters.remote-base-url>>
