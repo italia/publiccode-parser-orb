@@ -1,0 +1,4 @@
+description: >
+  Base Docker Image
+docker:
+  - image: cimg/base
