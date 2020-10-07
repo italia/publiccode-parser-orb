@@ -12,6 +12,8 @@ setup() {
     export P_DISABLE_STRICT="false"
     export P_REMOTE_BASE_URL=""
 
+    docker -v
+    
     # Capture the output of our "Greet" function
     result=$(Validation)
     return result

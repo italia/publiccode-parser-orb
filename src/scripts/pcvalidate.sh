@@ -1,6 +1,6 @@
 Validation() {
     echo "Start Validation Test"
-    echo $(docker -v)
+    docker -v
 
     FILEPATH=~/publiccodes
     [ -n "${PARAM_FPATH}" ] && echo "${PARAM_FPATH}" | grep -Eq '^\/.*' && FILEPATH="${PARAM_FPATH}" || FILEPATH=$FILEPATH"/${PARAM_FPATH}"
