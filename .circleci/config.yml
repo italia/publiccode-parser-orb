@@ -41,6 +41,8 @@ workflows:
   test-pack:
     unless: << pipeline.parameters.run-integration-tests >>
     jobs:
+      - checkout
+      - setup_remote_docker
       - orb-tools/lint # Lint Yaml files
       - orb-tools/pack # Pack orb source
       - shellcheck/check:

@@ -13,7 +13,7 @@ setup() {
     export P_REMOTE_BASE_URL=""
 
     docker -v
-    docker run hello-world
+
     # Capture the output of our "Greet" function
     result=$(Validation)
     return result
