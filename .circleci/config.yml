@@ -57,7 +57,7 @@ workflows:
           requires:
             - orb-tools/lint
             - orb-tools/pack
-            - bats/run
+            # - bats/run
             - shellcheck/check
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:
