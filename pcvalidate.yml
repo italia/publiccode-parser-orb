@@ -55,7 +55,7 @@ commands:
                 type: string
         steps:
             - run:
-                command: "Validation() {\n    FILEPATH=~/publiccodes\n    [ -n \"${PARAM_FPATH}\" ] && echo \"${PARAM_FPATH}\" | grep -Eq '^\\/.*' && FILEPATH=\"${PARAM_FPATH}\" || FILEPATH=$FILEPATH\"/${PARAM_FPATH}\"\n    [ -z \"${P_REMOTE_BASE_URL}\" ] && REMOTEPATH=\"\" || REMOTEPATH=\"-remote-base-url ${P_REMOTE_BASE_URL}\"\n    [ -n \"${P_DISABLE_STRICT}\" ] && STRICT=\"-no-strict\" || STRICT=\"\"\n    [ -n \"${P_DISABLE_NETWORK}\" ] && NETWORK=\"-no-network\" || NETWORK=\"\"\n    echo \"docker run -v\" \"$FILEPATH\" \"italia/publiccode-parser-go\" \"${P_FILENAME}\" \"$REMOTEPATH\" \"$STRICT\" \"$NETWORK\"\n    docker run -v \"$FILEPATH\" italia/publiccode-parser-go \"${P_FILENAME}\" \"$REMOTEPATH\" \"$STRICT\" \"$NETWORK\"\n}\n\nORB_TEST_ENV=\"bats-core\"\nif [ \"${0#*$ORB_TEST_ENV}\" == \"$0\" ]; then\n    Validation \nfi"
+                command: "Validation() {\n    echo \"Start Validation Test\"\n    echo $(docker -v)\n\n    FILEPATH=~/publiccodes\n    [ -n \"${PARAM_FPATH}\" ] && echo \"${PARAM_FPATH}\" | grep -Eq '^\\/.*' && FILEPATH=\"${PARAM_FPATH}\" || FILEPATH=$FILEPATH\"/${PARAM_FPATH}\"\n    [ -z \"${P_REMOTE_BASE_URL}\" ] && REMOTEPATH=\"\" || REMOTEPATH=\"-remote-base-url ${P_REMOTE_BASE_URL}\"\n    [ -n \"${P_DISABLE_STRICT}\" ] && STRICT=\"-no-strict\" || STRICT=\"\"\n    [ -n \"${P_DISABLE_NETWORK}\" ] && NETWORK=\"-no-network\" || NETWORK=\"\"\n    echo \"Command:\"\n    echo \"docker run -v\" \"$FILEPATH\" \"italia/publiccode-parser-go\" \"${P_FILENAME}\" \"$REMOTEPATH\" \"$STRICT\" \"$NETWORK\"\n    docker run hello-world\n    docker run -v \"$FILEPATH\" italia/publiccode-parser-go \"${P_FILENAME}\" \"$REMOTEPATH\" \"$STRICT\" \"$NETWORK\"\n}\n\nORB_TEST_ENV=\"bats-core\"\nif [ \"${0#*$ORB_TEST_ENV}\" == \"$0\" ]; then\n    Validation \nfi"
                 environement:
                     P_DISABLE_NETWORK: <<parameters.no-network>>
                     P_DISABLE_STRICT: <<parameters.no-strict>>
@@ -109,7 +109,6 @@ jobs:
         steps:
             - checkout
             - setup_remote_docker
-            - run: docker run hello-world
             - pcvalidate:
                 filename: << parameters.filename >>
                 no-network: << parameters.no-network >>
