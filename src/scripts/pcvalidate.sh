@@ -9,7 +9,7 @@ Validation() {
     [ "${P_DISABLE_STRICT}" = "true" ] && STRICT=" -no-strict " || STRICT=""
     [ "${P_DISABLE_NETWORK}" = "true" ] && NETWORK=" -no-network " || NETWORK=""
 
-    echo "docker run -i italia/publiccode-parser-go /dev/stdin "$REMOTEPATH$STRICT$NETWORK" < "$FILEPATH${P_FILENAME}" 
+    echo "docker run -i italia/publiccode-parser-go /dev/stdin $REMOTEPATH$STRICT$NETWORK < $FILEPATH${P_FILENAME}" 
 
     docker run -i italia/publiccode-parser-go /dev/stdin "$REMOTEPATH$STRICT$NETWORK" < "$FILEPATH${P_FILENAME}"
 }
