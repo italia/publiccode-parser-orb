@@ -14,7 +14,7 @@ Validation() {
     pwd
     echo \n\n\n
     echo "Command:"
-    echo "docker run -v" "$FILEPATH" "italia/publiccode-parser-go" "${P_FILENAME}" "$REMOTEPATH" "$STRICT" "$NETWORK"
+    echo "docker run -i italia/publiccode-parser-go /dev/stdin" "$REMOTEPATH" "$STRICT" "$NETWORK" " < " "${P_FILENAME}" 
 
     docker run -v "$FILEPATH" italia/publiccode-parser-go "${P_FILENAME}" "$REMOTEPATH" "$STRICT" "$NETWORK"
 }
