@@ -26,7 +26,7 @@ parameters:
 
 steps:
   - run:
-      environement:
+      environment:
         P_FILENAME: <<parameters.filename>>
         PARAM_FPATH: <<parameters.path>>
         P_DISABLE_NETWORK: <<parameters.no-network>>
