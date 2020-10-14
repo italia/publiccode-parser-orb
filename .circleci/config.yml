@@ -61,10 +61,13 @@ workflows:
             - shellcheck/check
 
 
-
+      - pcvalidate-orb/greet:
+          to: "Me Bloody Bastard"
 
       - pcvalidate-orb/checkFile:
-          filename: publiccode.yml
+          filename: "publiccode.yml"
+      
+      
 
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:

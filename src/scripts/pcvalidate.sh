@@ -2,7 +2,7 @@ Validation() {
     echo "Start Validation Test"
     docker -v
 
-    FILEPATH="/home/circleci/project/"
+    FILEPATH="/home/circleci/project"
 
     [ -n "${PARAM_FPATH}" ] && echo "${PARAM_FPATH}" | grep -Eq '^\/.*' && FILEPATH="${PARAM_FPATH}" || FILEPATH=$FILEPATH"/${PARAM_FPATH}"
     [ -z "${P_REMOTE_BASE_URL}" ] && REMOTEPATH="" || REMOTEPATH="-remote-base-url ${P_REMOTE_BASE_URL}"
