@@ -11,7 +11,7 @@ Validation() {
 
     ls
     echo \n\n\n
-    ls .. 
+    pwd
     echo \n\n\n
     echo "Command:"
     echo "docker run -v" "$FILEPATH" "italia/publiccode-parser-go" "${P_FILENAME}" "$REMOTEPATH" "$STRICT" "$NETWORK"
