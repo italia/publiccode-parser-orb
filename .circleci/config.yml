@@ -61,7 +61,7 @@ workflows:
             - shellcheck/check
 
 
-      - pcvalidate-orb/greet:
+      - pcvalidate-orb/hello:
           to: "Me Bloody Bastard"
 
       - pcvalidate-orb/checkFile:
