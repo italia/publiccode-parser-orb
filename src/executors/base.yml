@@ -1,4 +1,4 @@
 description: >
   Base Docker Image
 docker:
-  - image: cimg/base
+  - image: cimg/base:stable

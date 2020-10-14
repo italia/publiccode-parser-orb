@@ -68,7 +68,7 @@ executors:
         description: |
             Base Docker Image
         docker:
-            - image: cimg/base
+            - image: cimg/base:stable
     default:
         description: |
             This is a sample executor using Docker and Node.
