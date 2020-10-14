@@ -6,7 +6,7 @@ Validation() {
 
     echo ${P_DISABLE_STRICT}
 
-    [ -n "${PARAM_FPATH}" ] && echo "${PARAM_FPATH}" | grep -Eq '^\/.*' && FILEPATH="${PARAM_FPATH}" || FILEPATH=$FILEPATH"/${PARAM_FPATH}"
+    [ -n "${PARAM_FPATH}" ] && echo "${PARAM_FPATH}" | grep -Eq '^\/.*' && FILEPATH="${PARAM_FPATH}" || FILEPATH=$FILEPATH"/${PARAM_FPATH}/"
     [ -z "${P_REMOTE_BASE_URL}" ] && REMOTEPATH="" || REMOTEPATH="-remote-base-url ${P_REMOTE_BASE_URL}"
     [ "${P_DISABLE_STRICT}" = "true" ] && STRICT="-no-strict" || STRICT=""
     [ "${P_DISABLE_NETWORK}" = "true" ] && NETWORK="-no-network" || NETWORK=""

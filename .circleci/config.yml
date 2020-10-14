@@ -67,6 +67,7 @@ workflows:
       - pcvalidate-orb/checkFile:
           filename: "publiccode.yml"
           path: "files"
+          no-strict: true
       
       
 
