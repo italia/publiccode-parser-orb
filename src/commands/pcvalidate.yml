@@ -29,8 +29,8 @@ steps:
       environment:
         P_FILENAME: <<parameters.filename>>
         PARAM_FPATH: <<parameters.path>>
-        P_DISABLE_NETWORK: <<parameters.no-network>>
-        P_DISABLE_STRICT: <<parameters.no-strict>>
+        P_DISABLE_NETWORK: <<# parameters.no-network >> true <</ parameters.no-network >>
+        P_DISABLE_STRICT: <<# parameters.no-strict >> true <</ parameters.no-strict >>
         P_REMOTE_BASE_URL: <<parameters.remote-base-url>>
       name: pcvalidate
       command: <<include(scripts/pcvalidate.sh)>>
