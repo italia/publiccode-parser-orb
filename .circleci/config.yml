@@ -65,7 +65,7 @@ workflows:
           to: "Me Bloody Bastard"
 
       - pcvalidate-orb/checkFile:
-          filename: "publiccode.yml"
+          filename: "test-name.yml"
           path: "files"
           no-strict: true
       

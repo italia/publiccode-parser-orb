@@ -1,0 +1,122 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+name: BABEL
+applicationSuite: BABEL
+url: 'https://github.com/Azienda-USL-di-Bologna/babel'
+releaseDate: '2019-04-01'
+developmentStatus: stable
+platforms:
+  - web
+softwareType: standalone/web
+usedBy:
+  - Azienda USL di Bologna
+  - Azienda USL di Imola
+  - Azienda USL di Ferrara
+  - Azienda USL di Parma
+  - Azienda Ospedaliera di Bologna
+  - Azienda Ospedaliera di Parma
+  - Azienda Ospedaliera di Ferrara
+  - Istituto Ortopedico Rizzoli
+categories:
+  - document-management
+  - collaboration
+  - business-process-management
+  - web-collaboration
+dependsOn:
+  open:
+    - name: PostgreSQL
+    - name: Java Spring
+    - name: Angular Prime NG
+    - name: REDIS
+maintenance:
+  type: contract
+  contacts:
+    - name: Marianna Tascone
+      email: marianna.tascone@ausl.bologna.it
+      phone: ''
+  contractors:
+    - until: '2022-06-30'
+      name: NEXT srl
+      website: 'https://www.nextsw.it'
+    - name: NSI srl
+      until: '2022-06-30'
+      website: 'https://www.nsi.it'
+legal:
+  license: EUPL-1.2
+  repoOwner: Azienda USL di Bologna
+  mainCopyrightOwner: Azienda USL di Bologna
+intendedAudience:
+  countries:
+    - it
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - it
+it:
+  riuso:
+    codiceIPA: asl_bo
+  conforme:
+    gdpr: true
+    misureMinimeSicurezza: true
+  piattaforme:
+    spid: true
+description:
+  it:
+    genericName: Piattaforma gestione documentale
+    longDescription: >
+      BABEL non è descrivibile come un unico prodotto. BABEL è un insieme di
+      soluzioni integrate e nel contempo aperte alla collaborazione applicativa
+      con sistemi di terze parti.
+            
+      BABEL garantisce uno strato di servizi e di gestione dei flussi
+      documentali condiviso (Scrivania virtuale dell’utente, Gestione dei
+      fascicoli documentali, firma digitale, Convertitore di documenti, Instant
+      Messagging, PEC Gateway, Rubriche federate, BPMS, Single Sign On, …).
+      Su questo strato comune di servizi vengono messe a disposizione, in
+      modalità “plug-ins”, soluzioni verticali per gestire processi specifici
+      quali: protocollo informatico, Determina,Delibere, ….
+      Tutte le applicazioni sono costruite con interfacce pensate e collaudate
+      per poter essere semplici e piacevoli da utilizzare.
+           
+      La Scrivania Virtuale (babel-scrivania) è la prima funzione di BABEL,
+      tramite questa l'utente avrà immediatamente disponibili notifiche,
+      documentazione ed in generale le attività a lui assegnate dalle
+      applicazioni dei vari Enti integrate con essa (utile per la gestione di
+      servizi unificati); scelta poi l'attività dell'Ente specifico da eseguire,
+      Babel avvierà l'applicativo in grado di espletarla.
+      La PEC Internauta (babel-pec) è il modulo di Babel per la gestione delle
+      caselle di posta certificata che da accesso agli account di posta
+      certificata abilitati per l'utente, anche riferiti ad aziende diverse
+      (utile per la gestione di servizi unificati)
+      BABORG è Il sistema in uso agli amministratori aziendali, per la gestione
+      dell'Organigramma interaziendale, dei Servizi unificati e della
+      configurazione delle Caselle pec.
+    shortDescription: >-
+      BABEL è un sistema software per la gestione dell'archivio digitale e la
+      gestione documentale corrente.
+    features:
+      - 'Scrivania: Visualizzazione notifiche di processo'
+      - 'Scrivania: Visualizzazione attività di processo'
+      - 'Scrivania: Anteprima dei documenti coinvolti'
+      - 'Scrivania: Lancio applicazioni integrate'
+      - 'Scrivania: Gestione dello storico'
+      - 'Scrivania: Gestione profilo utente'
+      - 'Scrivania: Gestione multi-ente'
+      - 'Scrivania: Funzioni di ricerca'
+      - 'Scrivania: Single-sign-on'
+      - 'Scrivania: Log di utilizzo'
+      - 'PEC Internauta: possibilità di protocollare una mail in ingresso'
+      - 'PEC Internauta: possibilità di immettere una mail in un fascicolo'
+      - 'PEC Internauta: Reindirizzamento di PEC ad altra casella con mantenimento metadati'
+      - 'PEC Internauta: Associazione diretta ricevute alle PEC che le hanno generate'
+      - 'PEC Internauta: Gestione particolare degli errori di invio'
+      - 'BABORG: configurazione delle articolazioni organizzative servizi unificati tra Enti'
+      - "BABORG: Gestione dell'anagrafe PEC e loro mappatura sugli organigrammi degli Enti"
+    screenshots:
+      - 'Scrivania_Internauta.jpg'
+      - 'Pec_Internauta.jpg'
+      - 'BabOrg_Anagrafe_Pec.jpg'
+logo: 'logo-babel.png'
