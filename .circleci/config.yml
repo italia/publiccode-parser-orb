@@ -48,4 +48,4 @@ workflows:
       - pcvalidate-orb/checkFile:
           filename: "test-name.yml"
           path: "files"
-          no-strict: true      
+          no-strict: true
