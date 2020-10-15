@@ -5,30 +5,6 @@ display:
     home_url: https://www.website.com/docs
     source_url: https://github.com/romain325/pcvalidateOrb
 commands:
-    greet:
-        description: |
-            This command echos "Hello World" using file inclusion.
-        parameters:
-            to:
-                default: World
-                description: Hello to whom?
-                type: string
-        steps:
-            - run:
-                command: |
-                    Greet() {
-                        echo Hello "${PARAM_TO}"
-                    }
-
-                    # Will not run if sourced for bats-core tests.
-                    # View src/tests for more information.
-                    ORB_TEST_ENV="bats-core"
-                    if [ "${0#*$ORB_TEST_ENV}" == "$0" ]; then
-                        Greet
-                    fi
-                environment:
-                    PARAM_TO: <<parameters.to>>
-                name: Hello Greeting
     pcvalidate:
         description: |
             Check your publiccode.yml validity
@@ -115,18 +91,6 @@ jobs:
                 no-strict: << parameters.no-strict >>
                 path: << parameters.path >>
                 remote-base-url: << parameters.remote-base-url >>
-    hello:
-        description: |
-            Sample description
-        executor: default
-        parameters:
-            to:
-                default: World
-                description: Hello to whom?
-                type: string
-        steps:
-            - greet:
-                to: << parameters.to >>
 examples:
     example:
         description: |
@@ -136,7 +100,7 @@ examples:
             orbs:
                 pcvalidate-orb: romain325/pcvalidate-orb@1.2.3
             workflows:
-                use-my-orb:
+                use-my-orb-default:
                     jobs:
-                        - pcvalidate-orb/<job-name>
+                        - pcvalidate-orb/checkFile
 
