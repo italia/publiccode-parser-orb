@@ -1,41 +1,68 @@
-# Orb Project Template
-<!---
-[![CircleCI Build Status](https://circleci.com/gh/romain325/<project-name>.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/romain325/<project-name>) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/romain325/pcvalidate-orb)](https://circleci.com/orbs/registry/orb/romain325/pcvalidate-orb) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/romain325/<project-name>/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
+# Public Code Validate Orb
+<!--
+[![CircleCI Build Status](https://circleci.com/gh/romain325/pcvalidate-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/romain325/pcvalidate-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/romain325/pcvalidate-orb)](https://circleci.com/orbs/registry/orb/romain325/pcvalidate-orb) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/romain325/pcvalidate-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
+-->
 
---->
+## Usage
 
-A starter template for orb projects. Build, test, and publish orbs automatically on CircleCI with [Orb-Tools](https://circleci.com/orbs/registry/orb/circleci/orb-tools).
+This orb is a orb wrapper for the [Public Code Parser](https://github.com/italia/publiccode-parser-go)  
+You can use it in your workflow to easly check if your publiccode.yml is valid.  
 
-Additional READMEs are available in each directory.
+## How to add it to your Workflow
 
-**Meta**: This repository is open for contributions! Feel free to open a pull request with your changes. Due to the nature of this repository, it is not built on CircleCI. The Resources and How to Contribute sections relate to an orb created with this template, rather than the template itself.
+The orb is of course OpenSoure and accessible in the [Orb Registry](https://circleci.com/orbs/registry/orb/romain325/pcvalidate-orb)  
+You just need to reference it in the orbs section of your workflow like so:
+
+```yml
+orbs:
+    romain325/pcvalidate-orb@<version>
+    # Other orbs
+```
+
+## How to use it  
+
+For precise example, you can refer to the [examples](src/examples/example.yml).  
+
+### Default use
+
+Default path is the current path(root of your project) and **publiccode.yml** as the name of your file
+
+```yml
+- workflows:
+    thats-a-workflow:
+        jobs:
+            - pcvalidate-orb/checkFile
+```
+
+--------------------
+
+You can add parameters to it to precise the workflow you want.  
+Here is all the parameter you can find in this project:
+
+```yml
+filename:
+    default: publiccode.yml
+    description: Name of the publiccode file
+    type: string
+path:
+    default: ""
+    description: An absolute or relative path pointing to a locally cloned repository where the publiccode.yml is located.
+    type: string
+no-network:
+    default: false
+    description: Disables checks that require network connections (URL existence and oEmbed). This makes validation much faster.
+    type: boolean
+no-strict:
+    default: false
+    description: Disable strict mode.
+    type: boolean
+remote-base-url:
+    default: ""
+    description: The URL pointing to the directory where the publiccode.yml file is located.
+    type: string
+```
 
 ## Resources
 
-[CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/romain325/<project-name>) - The official registry page of this orb for all versions, executors, commands, and jobs described.
+[CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/romain325/pcvalidate-orb) - The official registry page of this orb for all versions, executors, commands, and jobs described.
 [CircleCI Orb Docs](https://circleci.com/docs/2.0/orb-intro/#section=configuration) - Docs for using and creating CircleCI Orbs.
-
-### How to Contribute
-
-We welcome [issues](https://github.com/romain325/<project-name>/issues) to and [pull requests](https://github.com/romain325/<project-name>/pulls) against this repository!
-
-### How to Publish
-* Create and push a branch with your new features.
-* When ready to publish a new production version, create a Pull Request from fore _feature branch_ to `master`.
-* The title of the pull request must contain a special semver tag: `[semver:<segement>]` where `<segment>` is replaced by one of the following values.
-
-| Increment | Description|
-| ----------| -----------|
-| major     | Issue a 1.0.0 incremented release|
-| minor     | Issue a x.1.0 incremented release|
-| patch     | Issue a x.x.1 incremented release|
-| skip      | Do not issue a release|
-
-Example: `[semver:major]`
-
-* Squash and merge. Ensure the semver tag is preserved and entered as a part of the commit message.
-* On merge, after manual approval, the orb will automatically be published to the Orb Registry.
-
-
-For further questions/comments about this or other orbs, visit the Orb Category of [CircleCI Discuss](https://discuss.circleci.com/c/orbs).
-

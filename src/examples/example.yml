@@ -11,3 +11,20 @@ usage:
     use-my-orb-default:
       jobs:
         - pcvalidate-orb/checkFile
+
+    use-my-orb-name-and-path:
+      jobs:
+        - pcvalidate-orb/checkFile:
+          filename: "MyPubliccode.yml"
+          path: "files/publiccodes"
+
+    use-my-orb-disable-options:
+      jobs:
+        - pcvalidate-orb/checkFile:
+          no-network: true
+          no-strict: true
+
+    use-my-orb-remote-path:
+      jobs:
+        - pcvalidate-orb/checkFile:
+          remote-base-url: https://raw.githubusercontent.com/<user>/<repo>/<gh-info>/<filename>.yml
