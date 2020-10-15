@@ -8,23 +8,21 @@ usage:
   orbs:
     pcvalidate-orb: romain325/pcvalidate-orb@1.2.3
   workflows:
-    use-my-orb-default:
+    examples:
       jobs:
+        # Default test on current path and filename publiccode.yml
         - pcvalidate-orb/checkFile
 
-    use-my-orb-name-and-path:
-      jobs:
+        # Precise the path (either absolute or relative) and the filename
         - pcvalidate-orb/checkFile:
-          filename: "MyPubliccode.yml"
-          path: "files/publiccodes"
+            filename: MyPubliccode.yml
+            path: files/publiccodes
 
-    use-my-orb-disable-options:
-      jobs:
+        # Add options
         - pcvalidate-orb/checkFile:
-          no-network: true
-          no-strict: true
+            no-network: true
+            no-strict: true
 
-    use-my-orb-remote-path:
-      jobs:
+        # Test remote file
         - pcvalidate-orb/checkFile:
-          remote-base-url: https://raw.githubusercontent.com/<user>/<repo>/<gh-info>/<filename>.yml
+            remote-base-url: https://raw.githubusercontent.com/<user>/<repo>/<gh-info>/<filename>.yml

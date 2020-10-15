@@ -100,7 +100,15 @@ examples:
             orbs:
                 pcvalidate-orb: romain325/pcvalidate-orb@1.2.3
             workflows:
-                use-my-orb-default:
+                examples:
                     jobs:
                         - pcvalidate-orb/checkFile
+                        - pcvalidate-orb/checkFile:
+                            filename: MyPubliccode.yml
+                            path: files/publiccodes
+                        - pcvalidate-orb/checkFile:
+                            no-network: true
+                            no-strict: true
+                        - pcvalidate-orb/checkFile:
+                            remote-base-url: https://raw.githubusercontent.com/<user>/<repo>/<gh-info>/<filename>.yml
 
