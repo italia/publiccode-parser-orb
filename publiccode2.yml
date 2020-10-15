@@ -1,4 +1,4 @@
-# This repository adheres to the publiccode.yml standard by including this 
+# This repository adheres to the publiccode.yml standard by including this
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
@@ -20,7 +20,7 @@ description:
       - Frontend stateless basato su Bootstrap Italia e VUE.js
     genericName: Area Personale del sito comunale
     longDescription: >
-      L'area del sito comunale dove il cittadino può trovare 
+      L'area del sito comunale dove il cittadino può trovare
       - il proprio profilo con le informazioni relative al proprio nucleo
       familiare, l'iscrizione alle liste elettorali etc...
       - informazioni sui servizi dell'Ente di cui ha usufruito
