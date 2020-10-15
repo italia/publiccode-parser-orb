@@ -7,12 +7,10 @@ setup() {
 @test '1: Test It' {
 
     export P_FILENAME=""
-    export PARAM_FPATH="$(pwd)"
-    export P_DISABLE_NETWORK="false"
-    export P_DISABLE_STRICT="false"
+    export PARAM_FPATH=""
+    export P_DISABLE_NETWORK=""
+    export P_DISABLE_STRICT=""
     export P_REMOTE_BASE_URL=""
-
-    docker -v
 
     # Capture the output of our "Greet" function
     result=$(Validation)

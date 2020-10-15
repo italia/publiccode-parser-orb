@@ -61,6 +61,9 @@ workflows:
             - shellcheck/check
 
       - pcvalidate-orb/checkFile:
+          filename: "publiccode2.yml"
+
+      - pcvalidate-orb/checkFile:
           filename: "test-name.yml"
           path: "files"
           no-strict: true
