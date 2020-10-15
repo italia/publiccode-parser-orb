@@ -1,0 +1,38 @@
+description: >
+  Check publiccode validity
+# What will this job do?
+# Descriptions should be short, simple, and clear.
+
+executor: base
+
+parameters:
+  filename:
+    type: string
+    default: "publiccode.yml"
+    description: "Name of the publiccode file"
+  path:
+    type: string
+    default: ""
+    description: "An absolute or relative path pointing to a locally cloned repository where the publiccode.yml is located."
+  no-network:
+    type: boolean
+    default: false
+    description: "Disables checks that require network connections (URL existence and oEmbed). This makes validation much faster."
+  no-strict:
+    type: boolean
+    default: false
+    description: "Disable strict mode."
+  remote-base-url:
+    type: string
+    default: ""
+    description: "The URL pointing to the directory where the publiccode.yml file is located."
+
+steps:
+  - checkout
+  - setup_remote_docker
+  - pcvalidate:
+      filename: << parameters.filename >>
+      path: << parameters.path >>
+      no-network: << parameters.no-network >>
+      no-strict: << parameters.no-strict >>
+      remote-base-url: << parameters.remote-base-url >>

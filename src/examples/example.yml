@@ -6,8 +6,8 @@ description: >
 usage:
   version: 2.1
   orbs:
-    <orb-name>: <namespace>/<orb-name>@1.2.3
+    pcvalidate-orb: romain325/pcvalidate-orb@1.2.3
   workflows:
-    use-my-orb:
+    use-my-orb-default:
       jobs:
-        - <orb-name>/<job-name>
+        - pcvalidate-orb/checkFile

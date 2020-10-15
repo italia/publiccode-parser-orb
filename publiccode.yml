@@ -1,0 +1,65 @@
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - digital-citizenship
+dependsOn:
+  proprietary:
+    - name: Webservices
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+description:
+  it:
+    documentation: 'https://github.com/ComuneTrento/Area-personale/blob/master/README.md'
+    features:
+      - Accesso con SPID
+      - Frontend stateless basato su Bootstrap Italia e VUE.js
+    genericName: Area Personale del sito comunale
+    longDescription: >
+      L'area del sito comunale dove il cittadino può trovare
+      - il proprio profilo con le informazioni relative al proprio nucleo
+      familiare, l'iscrizione alle liste elettorali etc...
+      - informazioni sui servizi dell'Ente di cui ha usufruito
+      - i pagamenti intercorsi con l'Ente
+      - i documenti che eventualmente l'Ente ha prodotto per il cittadino
+      In futuro è prevista l'integrazione con il message bus del Comune di
+      Trento per inviare notifiche tramite l'app IO.
+      Il software è il front-end usato dal Comune di Trento per implementare
+      l'area personale del cittadino e dipende strettamente dai webservices
+      dello stesso Ente.
+    shortDescription: Area personale del Cittadino
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: false
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: true
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: Comune di Trento
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: false
+maintenance:
+  type: none
+name: Area Personale del Comune di Trento
+platforms:
+  - web
+releaseDate: '2020-06-30'
+softwareType: addon
+softwareVersion: 1.0.0
+url: 'https://github.com/ComuneTrento/Area-personale'
+usedBy:
+  - Comune di Trento

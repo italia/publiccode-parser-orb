@@ -1,0 +1,106 @@
+version: 2.1
+description: |
+    public code validation Orb
+display:
+    home_url: https://www.website.com/docs
+    source_url: https://github.com/romain325/pcvalidateOrb
+commands:
+    pcvalidate:
+        description: |
+            Check your publiccode.yml validity
+        parameters:
+            filename:
+                default: publiccode.yml
+                description: Name of the publiccode file
+                type: string
+            no-network:
+                default: false
+                description: Disables checks that require network connections (URL existence and oEmbed). This makes validation much faster.
+                type: boolean
+            no-strict:
+                default: false
+                description: Disable strict mode.
+                type: boolean
+            path:
+                default: ""
+                description: An absolute or relative path pointing to a locally cloned repository where the publiccode.yml is located.
+                type: string
+            remote-base-url:
+                default: ""
+                description: The URL pointing to the directory where the publiccode.yml file is located.
+                type: string
+        steps:
+            - run:
+                command: "Validation() {\n    echo \"Start Validation Test\"\n    docker -v\n\n    FILEPATH=\"$(pwd)/\"\n\n    [ -n \"${PARAM_FPATH}\" ] && echo \"${PARAM_FPATH}\" | grep -Eq '^\\/.*' && FILEPATH=\"${PARAM_FPATH}/\" || FILEPATH=\"$FILEPATH/${PARAM_FPATH}/\"\n    [ -z \"${P_REMOTE_BASE_URL}\" ] && REMOTEPATH=\"\" || REMOTEPATH=\" -remote-base-url ${P_REMOTE_BASE_URL} \"\n    [ \"${P_DISABLE_STRICT}\" = \"true\" ] && STRICT=\" -no-strict \" || STRICT=\"\"\n    [ \"${P_DISABLE_NETWORK}\" = \"true\" ] && NETWORK=\" -no-network \" || NETWORK=\"\"\n\n    echo \"docker run -i italia/publiccode-parser-go /dev/stdin $REMOTEPATH$STRICT$NETWORK --verbose < $FILEPATH${P_FILENAME}\" \n\n    docker run -i italia/publiccode-parser-go /dev/stdin \"$REMOTEPATH$STRICT$NETWORK\" --verbose < \"$FILEPATH${P_FILENAME}\"\n}\n\nORB_TEST_ENV=\"bats-core\"\nif [ \"${0#*$ORB_TEST_ENV}\" == \"$0\" ]; then\n    Validation \nfi"
+                environment:
+                    P_DISABLE_NETWORK: <<# parameters.no-network >>true<</ parameters.no-network >>
+                    P_DISABLE_STRICT: <<# parameters.no-strict >>true<</ parameters.no-strict >>
+                    P_FILENAME: <<parameters.filename>>
+                    P_REMOTE_BASE_URL: <<parameters.remote-base-url>>
+                    PARAM_FPATH: <<parameters.path>>
+                name: pcvalidate
+executors:
+    base:
+        description: |
+            Base Docker Image
+        docker:
+            - image: cimg/base:stable
+    default:
+        description: |
+            This is a sample executor using Docker and Node.
+        docker:
+            - image: cimg/node:<<parameters.tag>>
+        parameters:
+            tag:
+                default: lts
+                description: |
+                    Pick a specific circleci/node image variant: https://hub.docker.com/r/cimg/node/tags
+                type: string
+jobs:
+    checkFile:
+        description: |
+            Check publiccode validity
+        executor: base
+        parameters:
+            filename:
+                default: publiccode.yml
+                description: Name of the publiccode file
+                type: string
+            no-network:
+                default: false
+                description: Disables checks that require network connections (URL existence and oEmbed). This makes validation much faster.
+                type: boolean
+            no-strict:
+                default: false
+                description: Disable strict mode.
+                type: boolean
+            path:
+                default: ""
+                description: An absolute or relative path pointing to a locally cloned repository where the publiccode.yml is located.
+                type: string
+            remote-base-url:
+                default: ""
+                description: The URL pointing to the directory where the publiccode.yml file is located.
+                type: string
+        steps:
+            - checkout
+            - setup_remote_docker
+            - pcvalidate:
+                filename: << parameters.filename >>
+                no-network: << parameters.no-network >>
+                no-strict: << parameters.no-strict >>
+                path: << parameters.path >>
+                remote-base-url: << parameters.remote-base-url >>
+examples:
+    example:
+        description: |
+            Sample example description.
+        usage:
+            version: "2.1"
+            orbs:
+                pcvalidate-orb: romain325/pcvalidate-orb@1.2.3
+            workflows:
+                use-my-orb-default:
+                    jobs:
+                        - pcvalidate-orb/checkFile
+

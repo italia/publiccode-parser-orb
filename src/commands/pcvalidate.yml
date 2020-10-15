@@ -1,0 +1,36 @@
+description: >
+  Check your publiccode.yml validity
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+parameters:
+  filename:
+    type: string
+    default: "publiccode.yml"
+    description: "Name of the publiccode file"
+  path:
+    type: string
+    default: ""
+    description: "An absolute or relative path pointing to a locally cloned repository where the publiccode.yml is located."
+  no-network:
+    type: boolean
+    default: false
+    description: "Disables checks that require network connections (URL existence and oEmbed). This makes validation much faster."
+  no-strict:
+    type: boolean
+    default: false
+    description: "Disable strict mode."
+  remote-base-url:
+    type: string
+    default: ""
+    description: "The URL pointing to the directory where the publiccode.yml file is located."
+
+steps:
+  - run:
+      environment:
+        P_FILENAME: <<parameters.filename>>
+        PARAM_FPATH: <<parameters.path>>
+        P_DISABLE_NETWORK: <<# parameters.no-network >>true<</ parameters.no-network >>
+        P_DISABLE_STRICT: <<# parameters.no-strict >>true<</ parameters.no-strict >>
+        P_REMOTE_BASE_URL: <<parameters.remote-base-url>>
+      name: pcvalidate
+      command: <<include(scripts/pcvalidate.sh)>>
