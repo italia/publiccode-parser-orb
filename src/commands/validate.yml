@@ -1,0 +1,40 @@
+description: >
+  Check your publiccode.yml validity
+parameters:
+  filename:
+    type: string
+    default: "publiccode.yml"
+    description: "Name of the publiccode file"
+  path:
+    type: string
+    default: "."
+    description: >
+      Absolute or relative path to the directory containing the repository
+      where the publiccode.yml is located.
+      Defaults to the working directory.
+  no-network:
+    type: boolean
+    default: false
+    description: >
+      Disable checks that require network connections (URL existence and oEmbed).
+      This makes the validation much faster.
+  no-strict:
+    type: boolean
+    default: false
+    description: "Disable strict mode."
+  remote-base-url:
+    type: string
+    default: ""
+    description: >
+      The URL pointing to the directory where the publiccode.yml file is located.
+
+steps:
+  - run:
+      environment:
+        PC_FILENAME: <<parameters.filename>>
+        PC_PATH: <<parameters.path>>
+        PC_NO_NETWORK: <<parameters.no-network>>
+        PC_NO_STRICT: <<parameters.no-strict>>
+        PC_REMOTE_BASE_URL: <<parameters.remote-base-url>>
+      name: Run publiccode validation
+      command: <<include(scripts/publiccode-validate.sh)>>
