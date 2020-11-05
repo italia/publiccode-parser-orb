@@ -5,23 +5,23 @@
 
 ## Usage
 
-This orb is a orb wrapper for the [Public Code Parser](https://github.com/italia/publiccode-parser-go)  
-You can use it in your workflow to easly check if your publiccode.yml is valid.  
+This orb is a orb wrapper for the [Public Code Parser](https://github.com/italia/publiccode-parser-go)
+You can use it in your workflow to easly check if your publiccode.yml is valid.
 
-## How to add it to your Workflow
+## How to add it to your Workflow
 
-The orb is of course OpenSoure and accessible in the [Orb Registry](https://circleci.com/orbs/registry/orb/romain325/pcvalidate-orb)  
+The orb is of course OpenSoure and accessible in the [Orb Registry](https://circleci.com/orbs/registry/orb/romain325/pcvalidate-orb)
 You just need to reference it in the orbs section of your workflow like so:
 
 ```yml
 orbs:
-    romain325/pcvalidate-orb@<version>
+    italia/publiccode-parser-orb@<version>
     # Other orbs
 ```
 
-## How to use it  
+## How to use it
 
-For precise example, you can refer to the [examples](src/examples/example.yml).  
+For precise example, you can refer to the [examples](src/examples/example.yml).
 
 ### Default use
 
