@@ -6,16 +6,16 @@
 
 ## Usage
 
-This orb validates publiccode.yml files using the [publiccode-parser-go](https://github.com/italia/publiccode-parser-go)
+This orb validates `[publiccode.yml](https://github.com/italia/publiccode.yml)` files
+using [publiccode-parser-go](https://github.com/italia/publiccode-parser-go)
 
-You can use it in your workflow to easly check if your publiccode.yml is valid.
+You can use it in your workflow to check if `publiccode.yml` in your repo is valid.
 
 Example:
 
 ```yml
 orbs:
-    publiccode-parser: italia/publiccode-parser-orb@<version>
-    # Other orbs
+    publiccode-parser: italia/publiccode-parser@<version>
 
 workflows:
   test_my_app:
