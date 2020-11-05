@@ -24,7 +24,7 @@ parameters:
 jobs:
   # Test commands
   integration-test-1:
-    executor: publiccode-parser-go
+    executor: publiccode-parser/publiccode-parser-go
     steps:
       - checkout
       - publiccode-parser/validate
