@@ -6,6 +6,7 @@ Validation() {
     [ "${PC_NO_NETWORK}" == "true" ] && PC_NO_NETWORK="-no-network" || PC_NO_NETWORK=""
     [ "${PC_NO_STRICT}" == "true" ] && PC_NO_STRICT="-no-strict" || PC_NO_STRICT=""
 
+    echo pcvalidate "$PC_REMOTE_BASE_URL" "$PC_NO_STRICT" "$PC_NO_NETWORK" "$PC_PATH/${PC_FILENAME}"
     pcvalidate "$PC_REMOTE_BASE_URL" "$PC_NO_STRICT" "$PC_NO_NETWORK" "$PC_PATH/${PC_FILENAME}"
 }
 
