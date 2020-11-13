@@ -1,0 +1,11 @@
+description: >
+  Validate remote publiccode.yml
+usage:
+  version: 2.1
+  orbs:
+    publiccode-parser: bfabio/publiccode-parser@1.2.3
+  workflows:
+    examples:
+      jobs:
+        - publiccode-parser/validate:
+            remote-base-url: https://raw.githubusercontent.com/<user>/<repo>/main/publiccode.yml

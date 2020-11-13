@@ -1,0 +1,10 @@
+description: >
+  Validate publiccode.yml at the root of the project
+usage:
+  version: 2.1
+  orbs:
+    publiccode-parser: bfabio/publiccode-parser@1.2.3
+  workflows:
+    examples:
+      jobs:
+        - publiccode-parser/validate
