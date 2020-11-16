@@ -4,4 +4,4 @@ description: >
   Validate publiccode.yml files
 display:
   home_url: "https://github.com/italia/publiccode.yml"
-  source_url: "https://github.com/bfabio/publiccode-parser-orb"
+  source_url: "https://github.com/italia/publiccode-parser-orb"
