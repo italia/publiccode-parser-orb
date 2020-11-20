@@ -6,7 +6,7 @@
 
 ## Usage
 
-This orb validates `[publiccode.yml](https://github.com/italia/publiccode.yml)` files
+This orb validates [`publiccode.yml`](https://github.com/italia/publiccode.yml) files
 using [publiccode-parser-go](https://github.com/italia/publiccode-parser-go)
 
 You can use it in your workflow to check if `publiccode.yml` in your repo is valid.
