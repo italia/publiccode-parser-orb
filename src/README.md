@@ -1,8 +1,12 @@
 # Orb Source
 
-Orbs are shipped as individual `orb.yml` files, however, to make development easier, it is possible to author an orb in _unpacked_ form, which can be _packed_ with the CircleCI CLI and published.
+Orbs are shipped as individual `orb.yml` files, however, to make development
+easier, it is possible to author an orb in _unpacked_ form, which can be _packed_
+with the CircleCI CLI and published.
 
-The default `.circleci/config.yml` file contains the configuration code needed to automatically pack, test, and deploy and changes made to the contents of the orb source in this directory.
+The default `.circleci/config.yml` file contains the configuration code needed
+to automatically pack, test, and deploy and changes made to the contents of the
+orb source in this directory.
 
 ## @orb.yml
 
@@ -17,7 +21,8 @@ Within the `@orb.yml` we generally specify 4 configuration keys
 2. **description**
     Give your orb a description. Shown within the CLI and orb registry
 3. **display**
-    Specify the `home_url` referencing documentation or product URL, and `source_url` linking to the orb's source repository.
+    Specify the `home_url` referencing documentation or product URL, and
+    `source_url` linking to the orb's source repository.
 4. **orbs**
     (optional) Some orbs may depend on other orbs. Import them here.
 
