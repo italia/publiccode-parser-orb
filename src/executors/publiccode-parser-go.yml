@@ -1,4 +1,4 @@
 description: >
   publiccode-parser-go image
 docker:
-  - image: italia/publiccode-parser-go:v1.2.2
+  - image: italia/publiccode-parser-go:v1.2.3
