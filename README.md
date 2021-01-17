@@ -15,7 +15,7 @@ Example:
 
 ```yml
 orbs:
-    publiccode-parser: italia/publiccode-parser@<version>
+    publiccode-parser: italia/publiccode-parser@0.0.2
 
 workflows:
   test_my_app:
