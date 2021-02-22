@@ -2,7 +2,7 @@
 
 [![CircleCI](https://img.shields.io/circleci/build/github/italia/publiccode-parser-orb)](https://circleci.com/gh/italia/publiccode-parser)
 [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/italia/publiccode-parser)](https://circleci.com/orbs/registry/orb/italia/publiccode-parser)
-[![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/romain325/pcvalidate-orb/master/LICENSE)
+[![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/italia/publiccode-parser-orb/blob/master/LICENSE)
 
 ## Usage
 
