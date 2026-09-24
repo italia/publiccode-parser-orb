@@ -4,6 +4,16 @@
 [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/italia/publiccode-parser)](https://circleci.com/orbs/registry/orb/italia/publiccode-parser)
 [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/italia/publiccode-parser-orb/blob/master/LICENSE)
 
+> [!WARNING]
+> This orb is no longer maintained and may not work with current
+> versions of the `publiccode.yml` standard.
+> To validate `publiccode.yml` files, use
+> [libpubliccode](https://github.com/publiccodeyml/libpubliccode)
+> directly.
+>
+> If you want to become a maintainer,
+> [open an issue](https://github.com/italia/publiccode-parser-orb/issues).
+
 ## Usage
 
 This orb validates [`publiccode.yml`](https://github.com/italia/publiccode.yml) files
